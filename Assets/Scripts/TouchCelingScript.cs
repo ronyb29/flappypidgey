@@ -18,7 +18,7 @@ public class TouchCelingScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		var rb = coll.rigidbody2D;
+		var rb = coll.GetComponent<Rigidbody2D>();
 		if (rb.tag == "Player") {
 			Debug.Log("Bounce!");
 			rb.velocity = -rb.velocity.y/2 *Vector2.up;

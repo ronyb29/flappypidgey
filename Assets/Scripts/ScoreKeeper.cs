@@ -25,6 +25,6 @@ class ScoreKeeper : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		guiText.text = string.Format("Score:{0}\nBest:{1}",Score,HighScore) ;
+		GetComponent<GUIText>().text = string.Format("Score:{0}\nBest:{1}",Score,HighScore) ;
 	}
 }

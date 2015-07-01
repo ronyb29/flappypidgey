@@ -52,18 +52,18 @@ public class BirdMovementCS : MonoBehaviour {
 		if (hasflapped) {
 			hasflapped = false;
 			animator.SetTrigger ("doFlap");
-			rigidbody2D.AddForce( - rigidbody2D.velocity.y*Vector2.up);
-			rigidbody2D.AddForce (FlapForce);
+			GetComponent<Rigidbody2D>().AddForce( - GetComponent<Rigidbody2D>().velocity.y*Vector2.up);
+			GetComponent<Rigidbody2D>().AddForce (FlapForce);
 
 		}
 
-		var vel = rigidbody2D.velocity;
+		var vel = GetComponent<Rigidbody2D>().velocity;
 		vel.x = fwdSpeed;
 		if (vel.y>0) 
 			vel.y = Mathf.Clamp (vel.y, 0, MaxVerticalVel);
-		rigidbody2D.velocity = vel;
+		GetComponent<Rigidbody2D>().velocity = vel;
 
-		float angle = Mathf.Lerp (45f, -75f, -rigidbody2D.velocity.y/MaxVerticalVel);
+		float angle = Mathf.Lerp (45f, -75f, -GetComponent<Rigidbody2D>().velocity.y/MaxVerticalVel);
 		transform.rotation = Quaternion.Euler (0, 0,angle);
 
 	}

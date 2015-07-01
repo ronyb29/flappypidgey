@@ -14,7 +14,7 @@ public class floorMover : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		float vel = player.rigidbody2D.velocity.x * Coeficient;
+		float vel = player.GetComponent<Rigidbody2D>().velocity.x * Coeficient;
 
 		if(!BirdMovementCS.isdead)
 			transform.position += Vector3.right * vel * Time.deltaTime;
